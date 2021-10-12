@@ -1,0 +1,27 @@
+<nav>
+    <div class="grid">
+        <div class="logo__image">
+            <p class="logo weigth-600">Logo</p>
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a s>Home</a>
+            </li>
+            <li>
+                <a routerLink="Productos">Produtos</a>
+            </li>
+            <li>
+                <a href="#">Contacto</a>
+            </li>
+        </ul>
+        <div class="container__ser">
+            <div class="user" *ngIf="!logged">
+                <a routerLink="Login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
+            </div>
+            <div class="user" *ngIf="logged">
+                <a (click)="logOut()">Pepito@gmail.com <i class="fas fa-sign-out-alt"></i></a>
+            </div>  
+        </div>
+    </div>
+</nav>

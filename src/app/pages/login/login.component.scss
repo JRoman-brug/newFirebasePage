@@ -1,0 +1,86 @@
+$color-primario: #00b0ff;
+
+main {
+    display: flex;
+    height: calc(100vh - 100px);
+}
+// contenedor general
+.login {
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+// contenedor de la imagen
+.container__image {
+    display: flex;
+    align-items: center;
+    grid-column: 1/8;
+    background: $color-primario;
+}
+.image {
+    width: 100%;
+    height: auto;
+}
+
+// Contenedor del formulario
+.container__form {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-column: 8/-1;
+    background: #ddd;
+    padding: 15px;
+}
+// titulo
+.title {
+    margin: auto;
+}
+// Formulario
+.formulario {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formulario .grupo {
+    position: relative;
+    display: block;
+}
+.formulario .input {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 30px;
+    padding-left: 10px;
+}
+// Animacion del border
+.formulario .barra::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: $color-primario;
+    width: 0;
+    height: 2px;
+    transition: .3s width ease-in-out;
+}
+.formulario .input:focus~ .barra::before{
+    width: 100%;
+}
+
+// botones de acceso
+.container__buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.container__buttons button{
+    width: 45%;
+    height: 38px;
+}
+
+// Links
+.container__links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

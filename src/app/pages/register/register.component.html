@@ -1,0 +1,36 @@
+<main>
+    <div class="grid login">
+        <div class="container__image">
+            <img src="../../../assets/undraw_Hello_re_3evm.svg" class="image">
+        </div>
+        <div class="container__form">
+            <h1 class="title weigth-700">Acceder</h1>
+            <form class="formulario" [formGroup]="formulario" (ngSubmit)="register()">
+                <div class="grupo">
+                    <input type="mail" class="input" placeholder="Mail" formControlName="email">
+                    <span class="barra"></span>
+                </div>
+                <div class="grupo">
+                    <input type="password" class="input" placeholder="Contraseña" formControlName="password">
+                    <span class="barra"></span>
+                </div>
+                <div class="grupo">
+                    <input type="password" class="input" placeholder="Confirme la contraseña" formControlName="passwordConfirm">
+                    <span class="barra"></span>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Registrarse</button>
+            </form>
+            <div class="container__buttons">
+                <button class="btn btn-primary"><i class="fab fa-google"></i> Google</button>
+                <button class="btn btn-primary"><i class="fab fa-facebook-f"></i> Facebook</button>
+            </div>
+            <div class="container__links">
+                <a href="">¿Olvidaste tu contraseña?</a>
+                <p>¿No tenes cuenta? <a href="">Registrate</a></p>
+            </div>
+        </div>
+    </div>
+    <p-toast position="bottom-right"></p-toast>
+</main>
+

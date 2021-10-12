@@ -1,0 +1,160 @@
+<main>
+    <div class="grid">
+        <div class="categorias">
+            <nav style="padding-left: 30px;">
+                <p>Genero</p>
+                <ul>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Hombre
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Mujer
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Niña
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Niño
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <p>Categoria</p>
+                <ul>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Moda
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Basicos
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Futbol
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Running
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Basquet
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <p>Marca</p>
+                <ul>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Nike
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Puma
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lotto
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkbox-category">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Reebok
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="productos">
+            <div class="producto__item" *ngFor="let producto of productos">
+                <div class="container__img">
+                    <img src="https://www.digitalsport.com.ar/files/products/5ecdacb9f14bf-496728-500x500.jpg" alt="">
+                </div>
+                <span>Zapatillas Puma Flyer Runner</span>
+                <p>Precio: {{7000 | currency}}</p>
+                <div class="container__buttons">
+                    <button class="btn btn-primary">editar</button>
+                    <button class="btn btn-danger">eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
