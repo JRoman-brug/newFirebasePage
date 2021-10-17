@@ -46,6 +46,12 @@ export class LoginComponent implements OnInit {
     this.$auth.onLogin(user.email, user.password)
   }
 
+  // Metodo para logearse con google
+  signInGoogle(){
+    this.$auth.onLoginGoogle()
+    
+  }
+
   // Toast
   contraseñaIncorrecta() {
     this.$messageService.add({ severity: 'error', summary: 'La contraseña no coinciden', detail: 'Escriba de nuevo la contraseña' });

@@ -1,28 +1,38 @@
 import { Injectable } from '@angular/core';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 // Firebease
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app'
+import firebase from 'firebase/compat/app';
+
+export interface User {
+  uid: string;
+  email: string;
+  displayName: string;
+  photoURL: string;
+  emailVerified: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  // user!:Observable<any> 
+
+  credenciales:any;
 
   constructor(public authFire: AngularFireAuth) {
-    // this.user = authFire.currentUser
+    this.authStatusListener();
   }
 
   // Metodo para registrarse
   async onRegister(mail: string, password: string) {
     try {
       await this.authFire.createUserWithEmailAndPassword(mail, password)
+
       console.log('onRegister: se realizo correctamente la operacion')
     }
     catch (e) {
@@ -30,18 +40,29 @@ export class AuthService {
     }
   }
 
-  gerUser(){
-  }
 
 
   // Metodo para logearse
   async onLogin(mail: string, password: string) {
     try {
       await this.authFire.signInWithEmailAndPassword(mail, password)
+        .then(e => {
+          console.log(e)
+        })
       return console.log('onLogin: se realizo correctamente la operacion')
     }
     catch (e) {
       console.log(e)
+    }
+  }
+
+  // Metodo para logearse con google
+  async onLoginGoogle() {
+    try {
+      return this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    }
+    catch (e) {
+      return console.log(e)
     }
   }
 
@@ -56,8 +77,27 @@ export class AuthService {
     }
   }
 
-  // Comprueba el estado de usuario (logeado / no logeado)
-  stateAuth() {
-    return this.authFire.authState.pipe(first()).toPromise()
+  // Metodo para obtener el usuario con la sesion activa
+
+  async authState() {
+    // try {
+
+    // }
+    // catch (error) {
+    //   return console.log(error)
+    // }
   }
+
+ 
+
+  authStatusListener() {
+
+    // esto funciona
+    this.authFire.onAuthStateChanged((credential) => {
+      this.credenciales = credential;
+    })
+
+    return this.credenciales
+  }
+
 }

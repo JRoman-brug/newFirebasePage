@@ -142,19 +142,21 @@
                     </li>
                 </ul>
             </nav>
+            <button class="btn btn-primary" (click)="agregar()">Agregar</button>
         </div>
         <div class="productos">
             <div class="producto__item" *ngFor="let producto of productos">
                 <div class="container__img">
-                    <img src="https://www.digitalsport.com.ar/files/products/5ecdacb9f14bf-496728-500x500.jpg" alt="">
+                    <img [src]="producto.image" alt="">
                 </div>
-                <span>Zapatillas Puma Flyer Runner</span>
-                <p>Precio: {{7000 | currency}}</p>
+                <span>{{producto.producto}}</span>
+                <p>{{producto.precio | currency}}</p>
                 <div class="container__buttons">
-                    <button class="btn btn-primary">editar</button>
-                    <button class="btn btn-danger">eliminar</button>
+                    <button class="btn btn-primary" (click)="edit(producto.id)">editar</button>
+                    <button class="btn btn-danger" (click)="delete(producto.id)">eliminar</button>
                 </div>
             </div>
         </div>
     </div>
+    <p-toast position="bottom-right"></p-toast>
 </main>

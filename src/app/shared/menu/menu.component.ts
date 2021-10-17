@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+import firebase from 'firebase/compat/app';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
@@ -10,24 +14,64 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class MenuComponent implements OnInit {
 
   logged: boolean = false;
-  // user$:Observable<any>;
 
-  constructor(private $auth: AuthService) { }
+  menu: string;
+  user: any;
+  constructor(private $auth: AuthService, public authFire: AngularFireAuth) {
+    this.menu = ''
+  }
 
-  async ngOnInit() {
-    console.log(this.$auth.gerUser())
-    // const user = await this.$auth.stateAuth()
-    // if (user) {
-    //   this.logged = true
-    //   console.log(user)
-    // }
-    // else {
-    //   this.logged = false;
-    // }
+
+  estado: boolean = true;
+  ngOnInit() {
+    // this.estadoUser()
+    // funciona
+    // body?.classList.add('rojito')
+  }
+
+  openMenu() {
+    this.menu = 'active'
+    let body = document.getElementById("body")
+    body?.classList.add('menuOpen')
+    console.log(this.menu)
+  }
+
+  closeMenu() {
+    let body = document.getElementById("body")
+    body?.classList.remove('menuOpen')
+    this.menu = ''
+    console.log(this.menu)
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  estadoUser() {
+    this.user = this.$auth.authStatusListener()
+
+    if (this.user != null) {
+      this.logged = true
+    }
+    else {
+      this.logged = false;
+    }
   }
 
   logOut() {
+    this.estadoUser()
     this.$auth.onLogOut()
+
   }
 
 }

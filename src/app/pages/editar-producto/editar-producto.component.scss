@@ -1,0 +1,56 @@
+
+$color-primario: #00b0ff;
+// Contendo general
+section {
+    display: flex;
+    height: calc(100vh - 100px);
+}
+.center{
+    height: 450px;
+}
+// Alineando items
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    grid-column: 4/-4;
+    background: #ddd;
+    border-radius: 10px;
+}
+// Formulario
+.formulario{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+// Grupo de inputs
+.formulario .input{
+    position: relative;
+    width: 100%;
+}
+// Inputs
+.formulario .input input{
+    width: 100%;
+    outline:none;
+    border: none;
+    height: 30px;
+    padding-left: 10px;
+}
+// Animacion de los inputs
+.formulario .input .barra::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: $color-primario;
+    width: 0;
+    height: 2px;
+    transition: .3s width ease;
+}
+
+.formulario .input input:focus~.barra::after{
+    width: 100%;                        
+}

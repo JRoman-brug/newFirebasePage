@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
     <div class="grid">
         <div class="logo__image">
             <p class="logo weigth-600">Logo</p>
@@ -13,15 +13,77 @@
             </li>
             <li>
                 <a href="#">Contacto</a>
+                <button (click)="estadoUser()">estado user</button>
             </li>
         </ul>
         <div class="container__ser">
-            <div class="user" *ngIf="!logged">
-                <a routerLink="Login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
+            <div class="user" *ngIf="!logged; else login">
+                <a routerLink="Login" class="login">Iniciar sesión <i class="fas fa-sign-in-alt"></i></a>
             </div>
-            <div class="user" *ngIf="logged">
-                <a (click)="logOut()">Pepito@gmail.com <i class="fas fa-sign-out-alt"></i></a>
-            </div>  
+            <ng-template #login>
+                <div class="user__container">
+                    <div class="user">
+                        <p>Usuario <a (click)="logOut()"></a></p>
+                        <i (click)="logOut()" style="color: white;" class="far fa-user"></i>
+                        <span class="barra"></span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</nav> -->
+
+<!-- <nav>
+    <div class="container">
+
+        <div class="container__logo">
+            <p class="weigth-600">Logo</p>
+        </div>
+
+        <div class="btn" (click)="openMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="Container__menu" [ngClass]="menu">
+            <ul class="lista">
+                <li class="link">Home</li>
+                <li class="link">Productos</li>
+                <li class="link">Servicios</li>
+            </ul>
+            <div class="btn-closee2" (click)="closeMenu()">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+</nav> -->
+
+
+
+<nav>
+    <div class="containerr">
+        <div class="container__logo">
+            <p class="weigth-600">Logo</p>
+        </div>
+        <div class="btn__menu" (click)="openMenu()"> 
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="container__menu" [ngClass]="menu">
+            <div class="btn__close" (click)="closeMenu()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="container__links">
+                <ul>
+                    <li>Home</li>
+                    <li>Productos</li>
+                    <li>Services</li>
+                </ul>
+            </div>
+
+            <div class="container__buttons">
+                <button class="btn btn-primary">Sign in</button>
+                <button class="btn btn-secondary">Sign up</button>
+            </div>
         </div>
     </div>
 </nav>
