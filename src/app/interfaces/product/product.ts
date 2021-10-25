@@ -7,5 +7,5 @@ export interface IProduct {
     producto:string,
     precio:number,
     image:string,
-    // categoria: ICategoria,
+    categoria: string,
 }

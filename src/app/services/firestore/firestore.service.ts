@@ -28,6 +28,7 @@ export class FirestoreService {
           producto: a.payload.doc.data().producto,
           precio: a.payload.doc.data().precio,
           image: a.payload.doc.data().imagen,
+          categoria:""
         }
         return producto
       }))
@@ -50,6 +51,7 @@ export class FirestoreService {
           producto: a.payload.data().producto,
           precio: a.payload.data().precio,
           image: a.payload.data().imagen,
+          categoria:''
         }
         return producto
       })
@@ -58,7 +60,7 @@ export class FirestoreService {
 
   // Agrega un producto
   addProductos(data: IProduct) {
-    this.collection.add(data)
+    return this.collection.add(data)
   }
 
   updateProducto(id:string, data:IProduct){

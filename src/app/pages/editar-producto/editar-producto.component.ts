@@ -31,7 +31,9 @@ export class EditarProductoComponent implements OnInit {
     this.formulario = $fb.group({
       producto: ['', Validators.required],
       precio: ['', Validators.required],
-      imagen: ['', Validators.required]
+      imagen: ['', Validators.required],
+      categoria: ['', Validators.required],
+
     })
 
   }
@@ -59,6 +61,8 @@ export class EditarProductoComponent implements OnInit {
       producto: this.formulario.value.producto,
       precio: this.formulario.value.precio,
       image: this.formulario.value.imagen,
+      categoria: this.formulario.value.categoria,
+
     }
 
     this.$db.updateProducto(this.id, producto)

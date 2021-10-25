@@ -26,31 +26,10 @@ section {
     width: 100%;
     gap: 10px;
 }
-// Grupo de inputs
-.formulario .input{
-    position: relative;
-    width: 100%;
-}
-// Inputs
-.formulario .input input{
-    width: 100%;
-    outline:none;
-    border: none;
-    height: 30px;
-    padding-left: 10px;
-}
-// Animacion de los inputs
-.formulario .input .barra::after{
-    content: '';
+
+
+.ayudita{
     position: absolute;
     bottom: 0;
     left: 0;
-    background: $color-primario;
-    width: 0;
-    height: 2px;
-    transition: .3s width ease;
-}
-
-.formulario .input input:focus~.barra::after{
-    width: 100%;                        
 }

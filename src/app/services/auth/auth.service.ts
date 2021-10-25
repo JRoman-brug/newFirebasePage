@@ -100,4 +100,18 @@ export class AuthService {
     return this.credenciales
   }
 
+  user(){
+
+    let user;
+    this.authFire.user
+    let user2={
+      ...this.authFire.user.pipe(
+        map(a=>{
+          return a;
+        })
+      )
+    }
+
+    return user2;
+  }
 }

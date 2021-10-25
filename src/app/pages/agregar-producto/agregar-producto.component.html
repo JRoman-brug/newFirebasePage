@@ -4,26 +4,65 @@
 
             <h1 class="title">Agregar Producto</h1>
             <form class="formulario" [formGroup]="formulario" (ngSubmit)="submit()">
-                <div class="input">
-                    <input type="text" placeholder="Nombre del producto" formControlName="producto">
-                    <span class="barra"></span>
+
+                <div>
+                    <label class="form-label ms-1">Nombre del producto</label>
+                    <input type="text" class="form-control" formControlName="producto">
                 </div>
-                <div class="input">
-                    <input type="number" placeholder="Precio" formControlName="precio">
-                    <span class="barra"></span>
+                <div>
+                    <label class="form-label ms-1">Precio</label>
+                    <input type="number" class="form-control" formControlName="precio">
                 </div>
-                <!-- Hay que hacer un refactor -->
-                <!-- <div class="input">
-                    <input type="text" placeholder="Categoria" formControlName="categoria">
-                    <span class="barra"></span>
-                </div> -->
-                <div class="input">
-                    <input type="text" placeholder="Imagen" formControlName="imagen">
-                    <span class="barra"></span>
+                <div>
+                    <label class="form-label ms-1">Imagen</label>
+                    <input type="text" class="form-control" formControlName="imagen">
                 </div>
+                <div>
+                    <label class="form-label ms-1">Tipo</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="categoria">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
         </div>
     </div>
     <p-toast position="bottom-right"></p-toast>
 </section>
+
+
+<!-- <div class="ayudita" (click)="showInfoInput()">
+    <button>estado input</button>
+</div>
+
+<label>
+    <input
+      type="file"
+      class="text-nowrap text-truncate"
+      (change)="selectFile($event)"
+    />
+  </label>
+  
+  <button
+    class="btn btn-success btn-sm"
+    [disabled]="!selectedFiles"
+    (click)="upload()"
+  >
+    Upload
+  </button>
+  
+  <div *ngIf="currentFileUpload" class="progress mt-2">
+    <div
+      class="progress-bar progress-bar-info"
+      role="progressbar"
+      attr.aria-valuenow="{{ percentage }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: percentage + '%' }"
+    >
+      {{ percentage }}%
+    </div>
+  </div> -->

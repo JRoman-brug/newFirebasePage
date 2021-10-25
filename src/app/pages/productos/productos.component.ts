@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,7 +17,7 @@ export class ProductosComponent implements OnInit {
   productos!: any[]
   constructor(
     private $db: FirestoreService,
-    private $messageService: MessageService,
+    private toastr: ToastrService,
     private $primengConfig: PrimeNGConfig,
     private $route: Router
   ) {
@@ -31,26 +32,30 @@ export class ProductosComponent implements OnInit {
   }
 
   edit(id: string) {
-    this.$route.navigate(['/EditarProducto',id])    
+    this.$route.navigate(['/EditarProducto', id]);
+
   }
 
   // Agrega un producto
   agregar() {
+    
     this.$route.navigate(['AgregarProducto'])
   }
 
   // Metodo para eliminar un producto
   delete(id: string) {
     this.$db.deleteProducto(id)
-    this.eliminoCorrectamente();
+      .then(() => {
+        this.showSuccess()
+      })
+      .catch(e => {
+        console.log(e)
+      })
   }
-
-  // Toast para eliminar producto
-  eliminoCorrectamente() {
-    this.$messageService.add({ severity: 'error', summary: 'Se elimino correctamente', detail: 'El producto se elimino correctamente de la base de datos' });
-  }
-
-  clear() {
-    this.$messageService.clear();
+  showSuccess() {
+    this.toastr.error('Hello world!', 'Toastr fun!',{
+      closeButton:true,
+      positionClass:'toast-bottom-right'
+    });
   }
 }

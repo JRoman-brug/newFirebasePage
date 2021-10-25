@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   logged: boolean = false;
 
   menu: string;
-  user: any;
+  user!: any;
   constructor(private $auth: AuthService, public authFire: AngularFireAuth) {
     this.menu = ''
   }
@@ -24,9 +24,6 @@ export class MenuComponent implements OnInit {
 
   estado: boolean = true;
   ngOnInit() {
-    // this.estadoUser()
-    // funciona
-    // body?.classList.add('rojito')
   }
 
   openMenu() {
@@ -58,6 +55,8 @@ export class MenuComponent implements OnInit {
 
 
   estadoUser() {
+    console.log(this.$auth.user());
+
     this.user = this.$auth.authStatusListener()
 
     if (this.user != null) {
